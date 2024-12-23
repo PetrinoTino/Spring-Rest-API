@@ -12,11 +12,9 @@ import java.util.List;
 @RequestMapping("/items")
 public class ItemController {
     private final ItemService itemService;
-
     public ItemController(ItemService itemService) {
         this.itemService = itemService;
     }
-
     @GetMapping("all")
     public ResponseEntity<List<Item>> getAllItems() {
         return ResponseEntity.ok(itemService.getAllItems());
@@ -33,7 +31,6 @@ public class ItemController {
     public ResponseEntity<Item> createItem(@RequestBody ItemDTO itemDto) {
         return ResponseEntity.ok(itemService.createItem(itemDto));
     }
-
     @PutMapping("update")
     public ResponseEntity<Item> updateItem(@RequestBody Item item) {
         return itemService.updateItem(item)
@@ -42,6 +39,7 @@ public class ItemController {
     }
 
     //if Else other way
+    //
     @DeleteMapping("delete/{id}")
     public ResponseEntity<?> deleteItem(@PathVariable Long id) {
         return itemService.deleteItem(id)
