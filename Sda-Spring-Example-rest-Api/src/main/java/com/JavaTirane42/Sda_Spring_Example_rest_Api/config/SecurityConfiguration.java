@@ -1,4 +1,5 @@
 package com.JavaTirane42.Sda_Spring_Example_rest_Api.config;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
