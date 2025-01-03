@@ -16,7 +16,6 @@ public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable);
-
         http.authorizeHttpRequests((requests) -> requests
                         .requestMatchers("/", "/items/**")
                         .permitAll()
@@ -28,6 +27,4 @@ public class SecurityConfiguration {
                         .permitAll()
                 )
                 .logout(LogoutConfigurer::permitAll);
-        return http.build();
-    }
-}
+        return http.build();}}
