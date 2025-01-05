@@ -8,19 +8,28 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
+
 @RestController
 @RequestMapping("/items")
 public class ItemController {
     private final ItemService itemService;
 
+
+
     public ItemController(ItemService itemService) {
         this.itemService = itemService;
     }
+
+
+
 
     @GetMapping("all")
     public ResponseEntity<List<Item>> getAllItems() {
         return ResponseEntity.ok(itemService.getAllItems());
     }
+
+
 
     @GetMapping("{id}")
     public ResponseEntity<Item> getItemByID(@PathVariable Long id) {
@@ -28,6 +37,9 @@ public class ItemController {
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
+
+
+
 
     @PostMapping("create")
     public ResponseEntity<Item> createItem(@RequestBody ItemDTO itemDto) {
@@ -49,7 +61,7 @@ public class ItemController {
                 ? ResponseEntity.ok().build()
                 : ResponseEntity.notFound().build();
     }
-//   ME if Else
+//    if else
 //     if (itemService.deleteItem(id)) {
 //        return ResponseEntity.ok("Item deleted");
 //    } else {
